@@ -207,6 +207,15 @@ This creates a `session_performance.png` plot and shows the basic pattern.
 
 ### Full Integration
 
+**Pro tip:** Design your MonkeyLogic task to use `EventMarker` liberally. The more codes you send, the easier analysis becomes. Common codes to track:
+- Trial type markers (pavlovian vs instrumental)
+- Stimulus identity
+- Stimulus positions
+- Probability/reward info
+- Choice and outcome
+
+Base your analysis around these codes rather than inferring from timing or other heuristics.
+
 Find the `run_session_analysis()` function in `run_analysis.py`. Replace the placeholder with your code:
 
 ```python
