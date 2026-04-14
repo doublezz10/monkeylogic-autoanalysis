@@ -208,11 +208,11 @@ This creates a `session_performance.png` plot and shows the basic pattern.
 ### Full Integration
 
 **Pro tip:** Design your MonkeyLogic task to use `EventMarker` liberally. The more codes you send, the easier analysis becomes. Common codes to track:
-- Trial type markers (pavlovian vs instrumental)
-- Stimulus identity
-- Stimulus positions
-- Probability/reward info
+- Trial type / condition markers
+- Stimulus identity and positions
 - Choice and outcome
+- Eye tracking events (fixation acquire, break, etc.)
+- Block transitions
 
 Base your analysis around these codes rather than inferring from timing or other heuristics.
 
