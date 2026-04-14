@@ -1,0 +1,18 @@
+name: monkeylogic_env
+
+channels:
+  - conda-forge
+  - defaults
+
+dependencies:
+  - python>=3.8
+  - numpy
+  - pandas
+  - matplotlib
+  - seaborn
+  - h5py
+  - requests
+
+  # Optional: uncomment for system tray support
+  # - pystray
+  # - pillow
