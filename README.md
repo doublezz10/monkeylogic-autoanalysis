@@ -404,6 +404,10 @@ touch /path/to/data/watcher.stop
 | Reset processed state | `python run_analysis.py --reset-state` |
 | Stop watcher | `touch data/watcher.stop` |
 
+## Related Projects
+
+[monkeylogic_slackbot](https://github.com/doublezz10/monkeylogic_slackbot) - Real-time MonkeyLogic file monitoring with Slack alerts. Watches your MonkeyLogic data folder and sends Slack notifications when sessions complete, with the ability to copy files to remote locations.
+
 ## License
 
 MIT - do whatever you want with it.
