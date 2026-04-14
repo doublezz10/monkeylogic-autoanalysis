@@ -221,25 +221,33 @@ class FileWatcher:
             logger.warning("pystray or PIL not installed, skipping system tray")
             return
         
-        # Create simple icon (1x1 pixel placeholder)
-        icon_image = Image.new('RGB', (64, 64), color='blue')
+        # Create monkey face icon
+        try:
+            from utils.tray_icon import create_monkey_icon
+            icon_image = create_monkey_icon(64)
+        except Exception:
+            logger.warning("Could not create monkey icon, using fallback")
+            icon_image = Image.new('RGB', (64, 64), color='#8B5A2B')
         
         def show_log(icon, item):
-            # Could open log file in editor
-            pass
+            # Open log file in default editor
+            import subprocess, sys
+            log_path = LOG_FILE if 'LOG_FILE' in globals() else None
+            if log_path and log_path.exists():
+                subprocess.run([sys.platform == 'darwin' and 'open' or 'xdg-open', str(log_path)])
         
         def stop_watcher(icon, item):
             self.stop()
         
         menu = pystray.Menu(
-            pystray.MenuItem("Show Log", show_log),
-            pystray.MenuItem("Stop", stop_watcher)
+            pystray.MenuItem("Open Log", show_log),
+            pystray.MenuItem("Stop Watcher", stop_watcher)
         )
         
         self._tray = pystray.Icon(
             "MonkeyLogic Watcher",
             icon_image,
-            "MonkeyLogic Auto-Analysis",
+            "🐵 MonkeyLogic Auto-Analysis",
             menu
         )
     

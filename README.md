@@ -253,10 +253,12 @@ python run_analysis.py --reset-state
 touch /path/to/data/watcher.stop
 ```
 
-### System Tray (Optional)
+### System Tray Icon
 
-Install optional dependencies for a system tray icon:
+Install optional dependencies for a monkey face system tray icon:
 ```bash
+conda install -c conda-forge pystray pillow
+# or
 pip install pystray Pillow
 ```
 
@@ -264,6 +266,13 @@ Enable in `FileWatcher` initialization:
 ```python
 watcher = FileWatcher(..., enable_tray=True)
 ```
+
+When enabled, you'll see a 🐵 monkey icon in your system tray while watching:
+- **Click icon** to see menu options
+- **"Open Log"** - opens the log file  
+- **"Stop Watcher"** - gracefully stops the watcher
+
+The icon is created programmatically (see `utils/tray_icon.py`) - no external image files needed.
 
 ## Common Issues
 
